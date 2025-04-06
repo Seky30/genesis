@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "8ee20bb2-9446-49d7-8499-a7b860e56bd9",
+		"name": "Genesis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39775329"
+	},
+	"item": [
+		{
+			"name": "GetAllUserDetail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "Localhost:8080/api/v1/users?detail=true",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "detail",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : \"1\",\r\n    \"name\" : \"Martin\",\r\n    \"surname\" : \"Novák\",\r\n    \"personId\" : \"qE3lY6uT0vKd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Localhost:8080/api/v1/users",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "Localhost:8080/api/v1/users",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "Localhost:8080/api/v1/users/20",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserIdDetail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "Localhost:8080/api/v1/users/20?detail=true",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"20"
+					],
+					"query": [
+						{
+							"key": "detail",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"id\": 20,\r\n        \"name\": \"Steaven\",\r\n        \"surname\": \"Strongman\",\r\n        \"personId\": \"vB1fX4rH7iNt\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Localhost:8080/api/v1/users",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "Localhost:8080/api/v1/users/20",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"20"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
