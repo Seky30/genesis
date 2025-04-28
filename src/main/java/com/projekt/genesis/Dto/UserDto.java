@@ -9,29 +9,14 @@ public class UserDto {
     private String name;
 
     private String surname;
-    @NotBlank(message = "PersonId je povinný údaj")
-    private String personId;
 
-    public UserDto(String name, String surname, String personId) {
-        this.name = name;
-        this.surname = surname;
-        this.personId = personId;
+    public UserDto() {
     }
 
     public UserDto(Long id, String name, String surname) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-    }
-
-    public UserDto() {
-    }
-
-    public UserDto(Long id, String name, String surname, String personId) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.personId = personId;
     }
 
     public Long getId() {
@@ -58,11 +43,5 @@ public class UserDto {
         this.surname = surname;
     }
 
-    public @NotBlank(message = "PersonId je povinný") String getPersonId() {
-        return personId;
-    }
 
-    public void setPersonId(@NotBlank(message = "PersonId je povinný ") String personId) {
-        this.personId = personId;
-    }
 }

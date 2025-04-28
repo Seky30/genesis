@@ -1,7 +1,6 @@
 package com.projekt.genesis.Service;
 
 import com.projekt.genesis.Dto.UserDetailDto;
-import com.projekt.genesis.Dto.UserDto;
 import com.projekt.genesis.Repository.UserRepository;
 import com.projekt.genesis.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,17 +25,17 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
-    public User createUser(UserDto userDto) {
-        personIdValidator.validatePersonId(userDto.getPersonId());
-        Optional<User> existingUser = userRepository.findByPersonId(userDto.getPersonId());
+    public User createUser(UserDetailDto userDetailDto) {
+        personIdValidator.validatePersonId(userDetailDto.getPersonId());
+        Optional<User> existingUser = userRepository.findByPersonId(userDetailDto.getPersonId());
         if (existingUser.isPresent()) {
-            throw new RuntimeException("Chyba: Uživatel s personId " + userDto.getPersonId() + " již existuje");
+            throw new RuntimeException("Chyba: Uživatel s personId " + userDetailDto.getPersonId() + " již existuje");
         }
 
         User user = new User();
-        user.setName(userDto.getName());
-        user.setSurname(userDto.getSurname());
-        user.setPersonId(userDto.getPersonId());
+        user.setName(userDetailDto.getName());
+        user.setSurname(userDetailDto.getSurname());
+        user.setPersonId(userDetailDto.getPersonId());
 
         user.setUuid(UUID.randomUUID().toString());
 
@@ -62,10 +61,14 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
-    public User updateUser(UserDto userDto) {
-        User user = getUserById(userDto.getId());
-        user.setName(userDto.getName());
-        user.setSurname(userDto.getSurname());
+    public User updateUser(UserDetailDto userDetailDto) {
+        if(userDetailDto.getPersonId()!= null && !userDetailDto.getPersonId().isEmpty()) {
+            throw new RuntimeException("PersonId nesmí být změněno");
+        }
+        User user = getUserById(userDetailDto.getId());
+        user.setName(userDetailDto.getName());
+        user.setSurname(userDetailDto.getSurname());
+
         User updatedUser = userRepository.save(user);
         return updatedUser;
     }

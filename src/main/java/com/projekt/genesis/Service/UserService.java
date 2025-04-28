@@ -7,13 +7,13 @@ import com.projekt.genesis.model.User;
 import java.util.List;
 
 public interface UserService {
-    User createUser(UserDto userDto);
+    User createUser(UserDetailDto userDetailDto);
 
     User getUserById(Long id);
 
     List<User> getAllUsers();
 
-    User updateUser(UserDto userDto);
+    User updateUser(UserDetailDto userDetailDto);
 
     void deleteUser(Long id);
 
